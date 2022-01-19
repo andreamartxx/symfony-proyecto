@@ -18,6 +18,11 @@ class PageController extends AbstractController
         ]);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Response
+     */
     public function inicio(): Response{
 
         return new Response("");
