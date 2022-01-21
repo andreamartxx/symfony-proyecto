@@ -27,7 +27,7 @@ class ColeccionRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)!"·$%&/()=????¿??????
+            ->setParameter('val', $value)
             ->orderBy('c.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
