@@ -19,13 +19,12 @@ class PageController extends AbstractController
     }
 
     /**
-     * Undocumented function
-     *
-     * @return Response
+     * 
+     * @Route("/", name="inicio")
      */
     public function inicio(): Response{
 
-        return new Response("");
+        return $this->render("inicio.html.twig");
 
     }
 }
