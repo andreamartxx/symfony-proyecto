@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\DBAL\Driver\IBMDB2\Result;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,4 +28,6 @@ class PageController extends AbstractController
         return $this->render("inicio.html.twig");
 
     }
+
+ 
 }
