@@ -38,9 +38,9 @@ class Azulejo
     private $ancho;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\ManyToOne(targetEntity=coleccion::class, inversedBy="azulejos")
      */
-    private $precio;
+    private $coleccion;
 
     public function getId(): ?int
     {
@@ -95,15 +95,16 @@ class Azulejo
         return $this;
     }
 
-    public function getPrecio(): ?float
+    public function getColeccion(): ?coleccion
     {
-        return $this->precio;
+        return $this->coleccion;
     }
 
-    public function setPrecio(float $precio): self
+    public function setColeccion(?coleccion $coleccion): self
     {
-        $this->precio = $precio;
+        $this->coleccion = $coleccion;
 
         return $this;
     }
+
 }

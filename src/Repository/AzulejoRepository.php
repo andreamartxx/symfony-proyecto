@@ -19,6 +19,17 @@ class AzulejoRepository extends ServiceEntityRepository
         parent::__construct($registry, Azulejo::class);
     }
 
+    public function findByName($text): array{
+
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT c FROM App\Entity\Azulejo c WHERE c.nombre LIKE :text'
+        )->setParameter('text', '%' .$text . '%');
+
+        return $query->execute();
+
+    }
+
     // /**
     //  * @return Azulejo[] Returns an array of Azulejo objects
     //  */

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ColeccionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,107 +22,64 @@ class Coleccion
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $blancos;
+    private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity=Azulejo::class, mappedBy="coleccion")
      */
-    private $cementados;
+    private $azulejos;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $maderas;
+    public function __construct()
+    {
+        $this->azulejos = new ArrayCollection();
+    }
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $metal;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $piedra;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $vintage;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getBlancos(): ?string
+    public function getNombre(): ?string
     {
-        return $this->blancos;
+        return $this->nombre;
     }
 
-    public function setBlancos(string $blancos): self
+    public function setNombre(string $nombre): self
     {
-        $this->blancos = $blancos;
+        $this->nombre = $nombre;
 
         return $this;
     }
 
-    public function getCementados(): ?string
+    /**
+     * @return Collection|Azulejo[]
+     */
+    public function getAzulejos(): Collection
     {
-        return $this->cementados;
+        return $this->azulejos;
     }
 
-    public function setCementados(string $cementados): self
+    public function addAzulejo(Azulejo $azulejo): self
     {
-        $this->cementados = $cementados;
+        if (!$this->azulejos->contains($azulejo)) {
+            $this->azulejos[] = $azulejo;
+            $azulejo->setColeccion($this);
+        }
 
         return $this;
     }
 
-    public function getMaderas(): ?string
+    public function removeAzulejo(Azulejo $azulejo): self
     {
-        return $this->maderas;
-    }
-
-    public function setMaderas(string $maderas): self
-    {
-        $this->maderas = $maderas;
+        if ($this->azulejos->removeElement($azulejo)) {
+            // set the owning side to null (unless already changed)
+            if ($azulejo->getColeccion() === $this) {
+                $azulejo->setColeccion(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getMetal(): ?string
-    {
-        return $this->metal;
-    }
-
-    public function setMetal(string $metal): self
-    {
-        $this->metal = $metal;
-
-        return $this;
-    }
-
-    public function getPiedra(): ?string
-    {
-        return $this->piedra;
-    }
-
-    public function setPiedra(string $piedra): self
-    {
-        $this->piedra = $piedra;
-
-        return $this;
-    }
-
-    public function getVintage(): ?string
-    {
-        return $this->vintage;
-    }
-
-    public function setVintage(string $vintage): self
-    {
-        $this->vintage = $vintage;
-
-        return $this;
-    }
 }

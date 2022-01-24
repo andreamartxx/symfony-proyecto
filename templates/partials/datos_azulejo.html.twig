@@ -1,0 +1,9 @@
+<ul>
+    <li><strong>{{ azulejo.nombre }}</strong></li>
+    <li><strong>Descripción</strong>: {{ azulejo.descripcion }}</li>
+    {% if azulejo.coleccion %}
+        <li><strong>Colección: </strong>{{ azulejo.coleccion.nombre }}</li>
+    {% endif %}
+    <li><strong>Ancho (cm): </strong>: {{ azulejo.ancho }}</li>
+    <li><strong>Alto (cm): </strong>: {{ azulejo.alto }}</li>
+</ul>

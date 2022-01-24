@@ -19,6 +19,17 @@ class ColeccionRepository extends ServiceEntityRepository
         parent::__construct($registry, Coleccion::class);
     }
 
+    public function findByName($text): array{
+
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT c FROM App\Entity\Coleccion c WHERE c.nombre LIKE :text'
+        )->setParameter('text', '%' .$text . '%');
+
+        return $query->execute();
+
+    }
+
     // /**
     //  * @return Coleccion[] Returns an array of Coleccion objects
     //  */

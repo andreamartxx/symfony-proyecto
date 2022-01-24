@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Colecciones{% endblock %}
+{% block body %}
+    <h1>Listado de colecciones</h1>
+    {% if azulejos %}
+        {% for azulejo in azulejos %}
+            {{ include ("partials/datos_azulejo.html.twig", { "azulejo": azulejo}) }}
+        {% endfor %}
+    {% else %}
+        <p>Azulejo {{ azulejo.id }} no encontrado</p>
+    {% endif %}
+    
+{% endblock %}
