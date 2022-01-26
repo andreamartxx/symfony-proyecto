@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Ficha del azulejo</h1>
     {% if azulejo %}
-        {{ include ("partials/datos_azulejo.html.twig", { "azulejo": azulejo}) }}
+        {{ include ("/partials/datos_azulejo.html.twig", { "azulejo": azulejo}) }}
     {% else %}
         <p>El azulejo {{ azulejo.id }} no encontrado</p>
     {% endif %}

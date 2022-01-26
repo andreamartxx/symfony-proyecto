@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Colecciones{% endblock %}
+{% block body %}
+    <h1>Listado de colecciones</h1>
+    {% if colecciones %}
+        {% for coleccion in colecciones %}
+            {{ include ("/partials/datos_coleccion.html.twig", { "coleccion": coleccion}) }}
+        {% endfor %}
+    {% else %}
+        <p>Colección {{ coleccion.id }} no encontrada</p>
+    {% endif %}
+    
+{% endblock %}

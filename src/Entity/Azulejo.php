@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AzulejoRepository;
+use App\Entity\Coleccion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
