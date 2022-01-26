@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Azulejo;
 use App\Entity\Coleccion;
 
 class ColeccionController extends AbstractController
@@ -27,7 +28,11 @@ class ColeccionController extends AbstractController
         $repositorio = $doctrine->getRepository(Coleccion::class);
         $colecciones = $repositorio->findAll();
 
-        return $this->render('/coleccion/lista_coleccion.html.twig', ['colecciones' => $colecciones]);
+        $repositorio2 = $doctrine->getRepository(Azulejo::class);
+        $azulejo = $repositorio2->findAll();
+
+
+        return $this->render('/coleccion/lista_coleccion.html.twig', ['colecciones' => $colecciones, 'azulejo'=> $azulejo]);
     }
 
     /**

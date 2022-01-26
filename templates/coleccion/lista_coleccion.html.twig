@@ -3,9 +3,11 @@
 {% block body %}
     <h1>Listado de colecciones</h1>
     {% if colecciones %}
+        <div id="accordion">
         {% for coleccion in colecciones %}
             {{ include ("/partials/datos_coleccion.html.twig", { "coleccion": coleccion}) }}
         {% endfor %}
+        </div>
     {% else %}
         <p>Colección {{ coleccion.id }} no encontrada</p>
     {% endif %}
