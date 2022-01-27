@@ -1,13 +1,15 @@
 {% extends "base.html.twig" %}
 {% block title %}Colecciones{% endblock %}
+
 {% block javascripts %}
-        <script src="/js/scripts.js"></script>
+        <script src="/js/accordion.js"></script>
 
 {% endblock %}
+
 {% block body %}
     <h1>Listado de colecciones</h1>
     {% if colecciones %}
-        <div id="accordion">
+        <div id="notaccordion">
         {% for coleccion in colecciones %}
             {{ include ("/partials/datos_coleccion.html.twig", { "coleccion": coleccion}) }}
         {% endfor %}
@@ -15,4 +17,5 @@
     {% else %}
         <p>Colección {{ coleccion.id }} no encontrada</p>
     {% endif %}
+
 {% endblock %}

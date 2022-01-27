@@ -35,7 +35,7 @@ class PageController extends AbstractController
      */
     public function calculo(): Response{
 
-        return $this->render("/partials/calculo.html.twig");
+        return $this->render("calculo.html.twig");
 
     }
 
