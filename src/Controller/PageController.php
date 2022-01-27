@@ -29,6 +29,16 @@ class PageController extends AbstractController
 
     }
 
+     /**
+     * 
+     * @Route("/calculo", name="calculo")
+     */
+    public function calculo(): Response{
+
+        return $this->render("/partials/calculo.html.twig");
+
+    }
+
  
 }
 

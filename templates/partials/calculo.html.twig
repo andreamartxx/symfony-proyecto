@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+{% block title %}CalcCem{% endblock %}
+
+{% block javascripts %}
+            <script src="/js/calculo.js"></script>
+            <script src="/js/prueba.js"></script>
+{% endblock %}
+
+{% block body %}
+    <section>
+      <button id="colection">Ver colecciones</button>        
+      <br>
+        <form id="formCalculo">
+            <label>Tipo de azulejo:</label>
+            <select name="select" id="selector">
+                <option value="0" selected>---</option>
+                <option value="1">1 - FS Raku</option>
+                <option value="2">2 - Poitiers Blanco</option>
+                <option value="3">3 - Ground Decorativo</option>
+                <option value="4">4 - Ground Mila Warm</option>
+                <option value="5">5 - Essence</option>
+                <option value="6">6 - Unique</option>
+                <option value="7">7 - Brass Rectificado</option>
+                <option value="8">8 - Brass Decorativo</option>
+                <option value="9">9 - Nature Decorativo</option>
+                <option value="10">10 - Adrenaline</option>
+                <option value="11">11 - FS Star</option>
+                <option value="12">12 - FS Yard</option>
+              </select>
+            <br >
+            <label>Largo (cm):</label>
+            <input type="text" id="largo"><br >
+            <label>Ancho (cm): </label>
+            <input type="text" id="ancho"><br >           
+            <label>Junta (mm):</label>
+                <select name="selectJunta" id="selectJunta">
+                  <option value="0" selected>---</option>
+                  <option value="1">1 mm</option>
+                  <option value="2">2 mm</option>
+                  <option value="3">3 mm</option>
+                  <option value="4">4 mm</option>
+                  <option value="5">5 mm</option>
+              </select><br >
+              <br>
+            <button id="btncalculo">Calcular</button>
+        </form>
+        <div id="text"></div>
+        <br>
+        <button id="print">Imprimir Form</button>
+    </section>
+{% endblock %}
