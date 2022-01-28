@@ -1,3 +1,7 @@
 #colection{
     margin-top: 7em;
 }
+
+li{
+    list-style: none;
+}

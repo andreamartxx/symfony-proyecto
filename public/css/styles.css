@@ -4623,6 +4623,10 @@ textarea.form-control-lg {
   color: #fff;
 }
 
+#after-nav{
+  margin-top: 3em;
+}
+
 .card {
   position: relative;
   display: flex;

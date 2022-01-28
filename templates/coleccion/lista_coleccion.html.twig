@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Listado de colecciones</h1>
+    <h1 id="after-nav">Listado de colecciones</h1>
     {% if colecciones %}
         <div id="notaccordion">
-        {% for coleccion in colecciones %}
-            {{ include ("/partials/datos_coleccion.html.twig", { "coleccion": coleccion}) }}
+        {% for coleccion in colecciones %}          
+            {{ include ("/partials/datos_azulejo.html.twig", { "coleccion": coleccion}) }}
         {% endfor %}
         </div>
     {% else %}

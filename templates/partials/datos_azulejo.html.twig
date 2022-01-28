@@ -1,9 +1,17 @@
-<ul>
-    <li><strong>{{ azulejo.nombre }}</strong></li>
-    <li><strong>Descripción</strong>: {{ azulejo.descripcion }}</li>
-    {% if azulejo.coleccion %}
-        <li><strong>Colección: </strong>{{ azulejo.coleccion.nombre }}</li>
-    {% endif %}
-    <li><strong>Ancho (cm)</strong>: {{ azulejo.ancho }}</li>
-    <li><strong>Alto (cm)</strong>: {{ azulejo.alto }}</li>
-</ul>
+<h3>{{ coleccion.nombre }}</h3>
+    <div>
+        {% for azulejo in coleccion.azulejos %}
+            <ul>
+                <li><strong>{{ azulejo.nombre }}</strong></li>
+                <li><strong>Descripción</strong>: {{ azulejo.descripcion }}</li>
+                {% if azulejo.coleccion %}
+                    <li><strong>Colección: </strong>{{ azulejo.coleccion.nombre }}</li>
+                {% endif %}
+                <li><strong>Ancho (cm)</strong>: {{ azulejo.ancho }}</li>
+                <li><strong>Alto (cm)</strong>: {{ azulejo.alto }}</li>
+            </ul>
+        {% endfor %}
+        
+    </div>
+
+
