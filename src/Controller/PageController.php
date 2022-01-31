@@ -6,6 +6,11 @@ use Doctrine\DBAL\Driver\IBMDB2\Result;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Entity\Usuario;
+
 
 class PageController extends AbstractController
 {
@@ -45,7 +50,19 @@ class PageController extends AbstractController
      */
     public function contacto(): Response{
 
-        return $this->render("contacto.html.twig");
+        $contacto = new Usuario();
+
+        $formulario = $this->createFormBuilder($contacto)
+            ->add('nombre', TextType::class)
+            ->add('apellido', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('mensaje', TextType::class)
+            ->add('enviar', SubmitType::class, array('label'=>'Enviar'))
+            ->getForm();
+
+        return $this->render("contacto.html.twig", array(
+            'formulario' => $formulario->createView()
+        ));
 
     }
 

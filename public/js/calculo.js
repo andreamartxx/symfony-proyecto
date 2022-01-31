@@ -24,27 +24,27 @@ function enviaDatos(){
         ancho = 7.5;
         largo = 30;
     }
-    if([seleccion.selectedIndex] == "3"){
-        ancho = 7.5;
-        largo = 45;
-    }
-    if([seleccion.selectedIndex] == "4"){
-        ancho = 15;
-        largo = 90;
-    }
-    if([seleccion.selectedIndex] == "5" || [seleccion.selectedIndex] == "12"){
+    if([seleccion.selectedIndex] == "4" || [seleccion.selectedIndex] == "7"){
         ancho = 60;
         largo = 60;
     }
-    if([seleccion.selectedIndex] == "6" || [seleccion.selectedIndex] == "7" || [seleccion.selectedIndex] == "11"){
+    if([seleccion.selectedIndex] == "5"){
+        ancho = 19.5;
+        largo = 121.5;
+    }
+    if([seleccion.selectedIndex] == "6"){
+        ancho = 15;
+        largo = 90;
+    }
+    if([seleccion.selectedIndex] == "3"|| [seleccion.selectedIndex] == "8" ||[seleccion.selectedIndex] == "9"){
         ancho = 30;
         largo = 30;
     }
-    if([seleccion.selectedIndex] == "8"){
+    if([seleccion.selectedIndex] == "10"){
         ancho = 45.5;
         largo = 67.5;
     }
-    if([seleccion.selectedIndex] == "9" || [seleccion.selectedIndex] == "10"){
+    if([seleccion.selectedIndex] == "11" || [seleccion.selectedIndex] == "12"){
         ancho = 45;
         largo = 45;
     }

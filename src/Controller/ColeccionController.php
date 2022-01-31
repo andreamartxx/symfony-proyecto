@@ -35,18 +35,4 @@ class ColeccionController extends AbstractController
         return $this->render('/coleccion/lista_coleccion.html.twig', ['colecciones' => $colecciones, 'azulejo'=> $azulejo]);
     }
 
-    /**
-     *
-     *@Route("/coleccion/buscar/{texto}", name="buscar_azulejo")
-     */
-    public function buscar (ManagerRegistry $doctrine, $texto): Response{
-
-        $repositorio = $doctrine->getRepository(Azulejo::class);
-        $coleccion = $repositorio->findByName($texto);
-
-        return $this->render('lista_coleccion.html.twig', ['coleccion'=>$coleccion]);
-
-    }
-
-  
 }

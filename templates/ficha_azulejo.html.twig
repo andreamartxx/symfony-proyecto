@@ -1,16 +1,21 @@
 {% extends "base.html.twig" %}
 {% block title %}Azulejo{% endblock %}
 
+{% block stylesheets %}
+    <link href="/css/azulejo.css" rel="stylesheet" />
+{% endblock %}
+
 {% block javascripts %}
 {% endblock %}
 
 {% block body %}
-    <h1>Ficha del azulejo</h1>
-    {% if azulejo %}
-            <script src="/js/accordion.js"></script>
-
-        {{ include ("/partials/datos_azulejo.html.twig", { "azulejo": azulejo}) }}
-    {% else %}
-        <p>El azulejo {{ azulejo.id }} no encontrado</p>
-    {% endif %}
+    <div id="dato-azulejo" class="container">  
+        <h1>Ficha del azulejo</h1>
+        <br>
+        {% if azulejo %}
+            {{ include ("/partials/azulejo-part.html.twig", { "azulejo": azulejo}) }}
+        {% else %}
+            <p>El azulejo {{ azulejo.id }} no encontrado</p>
+        {% endif %}
+    </div>
 {% endblock %}

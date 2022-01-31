@@ -1,41 +1,39 @@
 {% extends "base.html.twig" %}
-{% block title %}Cálculo{% endblock %}
+{% block title %}Contacto{% endblock %}
+
+{% block stylesheets %}
+            <link href="/css/form.css" rel="stylesheet" />
+{% endblock %}
 
 {% block javascripts %}
 
 {% endblock %}
 
 {% block body %}
-     <!-- Signup-->
-        <section class="signup-section" id="signup">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                        
-                        <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
-                            </div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                            
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
+    <div class="container">
+        {{form(formulario)}}
+        {# <form>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example1">Nombre:</label>
+                <input type="text" id="form4Example1" class="form-control" />
             </div>
-        </section>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example1">Apellido:</label>
+                <input type="text" id="form4Example1" class="form-control" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example2">Correo Electrónico:</label>
+                <input type="email" id="form4Example2" class="form-control" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example3">Mensaje:</label>
+                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+        </form> #}
+    </div>
+    
 {% endblock %}

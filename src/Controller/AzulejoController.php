@@ -27,20 +27,7 @@ class AzulejoController extends AbstractController
         12 => ["nombre" => "FS Yard", "descripcion" => "a", "alto" => "45", "ancho" => "45"]
     ];
 
-
     /**
-     * @Route("/azulejo", name="azulejo")
-     */
-    public function lista_azulejo(ManagerRegistry $doctrine): Response
-    {
-        
-        $repositorio = $doctrine->getRepository(Azulejo::class);
-        $azulejos = $repositorio->findAll();
-
-        return $this->render('lista_azulejo.html.twig', ['azulejos' => $azulejos]);
-     }
-
-     /**
      * @Route("/azulejo/{codigo}", name="ficha_azulejo")
      */
     public function ficha_azulejo(ManagerRegistry $doctrine, $codigo): Response{
@@ -64,6 +51,22 @@ class AzulejoController extends AbstractController
         return $this->render('lista_azulejo.html.twig', ['azulejos'=>$azulejos]);
 
     }
+
+    /**
+     * @Route("/azulejo", name="azulejo")
+     */
+    public function lista_azulejo(ManagerRegistry $doctrine): Response
+    {
+        
+        $repositorio = $doctrine->getRepository(Azulejo::class);
+        $azulejos = $repositorio->findAll();
+
+        return $this->render('lista_azulejo.html.twig', ['azulejos' => $azulejos]);
+     }
+
+     
+
+    
 
     
 

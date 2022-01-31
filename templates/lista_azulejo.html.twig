@@ -1,12 +1,20 @@
 {% extends "base.html.twig" %}
 {% block title %}Azulejos{% endblock %}
+
+{% block stylesheets %}
+    <link href="/css/azulejo.css" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
-    <h1>Listado de Azulejos</h1>
-    {% if azulejos %}
-        {% for azulejo in azulejos %}
-            {{ include ("/partials/datos_azulejo.html.twig", { "azulejo": azulejo}) }}
-        {% endfor %}
-    {% else %}
-        <p>Azulejo {{ azulejo.id }} no encontrado</p>
-    {% endif %}
+    <div id="listaAzulejo" class="container">
+        <h1>Listado de Azulejos</h1>
+        <br>
+        {% if azulejos %}
+            {% for azulejo in azulejos %}
+                {{ include ("/partials/azulejo-part.html.twig", { "azulejo": azulejo}) }}
+            {% endfor %}
+        {% else %}
+            <p>Azulejo {{ azulejo.id }} no encontrado</p>
+        {% endif %}
+    </div>
 {% endblock %}
