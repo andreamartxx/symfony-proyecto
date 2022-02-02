@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Usuario;
@@ -56,7 +57,7 @@ class PageController extends AbstractController
             ->add('nombre', TextType::class)
             ->add('apellido', TextType::class)
             ->add('email', EmailType::class)
-            ->add('mensaje', TextType::class)
+            ->add('mensaje', TextareaType::class)
             ->add('enviar', SubmitType::class, array('label'=>'Enviar'))
             ->getForm();
 

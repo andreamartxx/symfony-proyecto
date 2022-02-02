@@ -30,6 +30,13 @@ class Usuario
      * @Assert\NotBlank()
      * @Assert\Email(message="El email {{ value }} no es válido")
      */
+
+    private $apellido;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+
     private $email;
 
     /**
@@ -37,11 +44,7 @@ class Usuario
      * @Assert\NotBlank
      * (message="El apellido es obligatorio")
      */
-    private $apellido;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+   
     private $mensaje;
 
     public function getId(): ?int
@@ -61,18 +64,6 @@ class Usuario
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     public function getApellido(): ?string
     {
         return $this->apellido;
@@ -81,6 +72,18 @@ class Usuario
     public function setApellido(string $apellido): self
     {
         $this->apellido = $apellido;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

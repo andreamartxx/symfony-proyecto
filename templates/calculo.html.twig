@@ -3,22 +3,23 @@
 
 {% block stylesheets %}
     <link href="/css/calculo.css" rel="stylesheet" />
-    <link href="/css/codigoQR.css" rel="stylesheet" />
 {% endblock %}
 
 {% block javascripts %}
-            <script src="/js/jquery-3.6.0.js"></script>
-            <script src="https://unpkg.com/qrious@4.0.2/dist/qrious.js"></script>
-            <script src="/js/calculo.js"></script>
-            <script src="/js/codigoQR.js"></script>
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/jquery.qrcode.min.js"></script>
+    <script src="/js/calculo.js"></script>
+    <script src="/js/codigoQR.js"></script>
 {% endblock %}
 
 {% block body %}
+
     <div id="formCalculo" class="container">
         <section>
             <form id="formCalculo">
-                <label>Tipo de azulejo:</label>
-                <select name="select" id="selector">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example1">Tipo de azulejo:</label>
+                <select name="select" id="selector" class="form-control">
                     <option value="0" selected>---</option>
                     <option value="1">1 - FS Raku</option>
                     <option value="2">2 - Poitiers Blanco</option>
@@ -33,27 +34,33 @@
                     <option value="11">11 - FS Star</option>
                     <option value="12">12 - FS Yard</option>
                   </select>
-                <br >
-                <label>Largo (cm):</label>
-                <input type="text" id="largo"><br >
-                <label>Ancho (cm): </label>
-                <input type="text" id="ancho"><br >           
-                <label>Junta (mm):</label>
-                    <select name="selectJunta" id="selectJunta">
-                      <option value="0" selected>---</option>
-                      <option value="1">1 mm</option>
-                      <option value="2">2 mm</option>
-                      <option value="3">3 mm</option>
-                      <option value="4">4 mm</option>
-                      <option value="5">5 mm</option>
-                  </select><br >
-                  <br>
-                <button id="btncalculo">Calcular</button>
+            </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example2">Largo (cm):</label>
+                    <input type="text" id="largo" class="form-control" >
+                </div>
+                
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example3">Ancho (cm): </label>
+                    <input type="text" id="ancho" class="form-control">
+                </div>
+
+                <div class="form-outline mb-4">            
+                    <label class="form-label" for="form4Example4">Junta (mm):</label>
+                        <select name="selectJunta" id="selectJunta" class="form-control">
+                        <option value="0" selected>---</option>
+                        <option value="1">1 mm</option>
+                        <option value="2">2 mm</option>
+                        <option value="3">3 mm</option>
+                        <option value="4">4 mm</option>
+                        <option value="5">5 mm</option>
+                    </select>
+                </div>
+                <button id="btncalculo" type="submit" class="btn btn-primary btn-block mb-4">Calcular</button>
+                <button id="btnGenera" class="btn btn-primary btn-block mb-4">Generar QR</button>
             </form>
             <div id="text"></div>
-            <br>
-            <button id="print">Generar</button>
-            <br>
+            <div id="qrcode" class="featured-text text-center"></div>
         </section>
     </div>
 {% endblock %}
