@@ -25,24 +25,24 @@ class Usuario
      */
     private $nombre;
 
+   
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $apellido;
+
+    
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      * @Assert\Email(message="El email {{ value }} no es válido")
      */
-
-    private $apellido;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * (message="El apellido es obligatorio")
+     * (message="El mensaje es obligatorio")
      */
    
     private $mensaje;
