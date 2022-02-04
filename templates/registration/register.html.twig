@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+            <link href="/css/form.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>Registro</h1>
+    <div class="container">
+    {% form_theme registrationForm 'bootstrap_5_horizontal_layout.html.twig' %}    
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+
+            <button type="submit" class="btn">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
