@@ -5,7 +5,6 @@ window.onload = function(){
         enviaDatos();
 
     });
-
 }
 
 function enviaDatos(){
@@ -51,9 +50,9 @@ function enviaDatos(){
 
     //calculo num azulejos necesarios con valores ancho y largo
 
-    var largoSuperficie = document.getElementById("largo").value; //valor input
+    var largoSuperficie = document.getElementById("largo").value;
 
-    var anchoSuperficie = document.getElementById("ancho").value; //valor input
+    var anchoSuperficie = document.getElementById("ancho").value;
 
 
     //superficie en metros cuadrados
@@ -74,12 +73,11 @@ function enviaDatos(){
 
     var numAzulejo = 100/total;
 
-
     //num de cajas, de 1m^2
 
     if(numAzulejo > 10){
 
-        caja = total/5; //m2
+        caja = total/5;
 
        if(numAzulejo%5 > 0){
            caja++;
@@ -87,7 +85,7 @@ function enviaDatos(){
 
    }else{
 
-       caja = total/10; //m2
+       caja = total/10;
 
        if(numAzulejo%10 > 0){
            caja++;
@@ -103,7 +101,7 @@ function enviaDatos(){
     var addAzulejo = azulejoCaja + (15/100);
 
     //imprimir en pantalla
-
+    
     document.getElementById("text").innerHTML = 
     "<p>Azulejo Seleccionado: "+seleccion.options[seleccion.selectedIndex].text+ " </p>" + 
     "<p>Superficie en metros cuadrados: " +metroCuadrado.toFixed(0) + " m²</p>"+
@@ -111,4 +109,26 @@ function enviaDatos(){
     "<p>Azulejos por metro cuadrado: " +numAzulejo.toFixed(0) + " azulejo/m²</p>"+
     "<p>Cajas necesarias: " +caja.toFixed(0) +" cajas</p>"+
     "<p>Azulejos por caja: " +addAzulejo.toFixed(0)+ " azulejos</p>";
+
+   //creaciónJSON
+
+    let uploadData = {
+        azulejoSeleccionado : seleccion.options[seleccion.selectedIndex].text,
+        superficie : metroCuadrado.toFixed(0),
+        numAzulejo : total.toFixed(0),
+        azulejosMetro : numAzulejo.toFixed(0),
+        numCaja : caja.toFixed(0),
+        azulejoCaja : addAzulejo.toFixed(0)
+    }
+
+    $.ajax({
+        type : "POST",
+        url : "/resultado/uploadAzulejo/" /* meter {data} */ ,
+
+    })
+    .done (()=>{
+        JSON.stringify(uploadData)
+    })
+    
+
 }

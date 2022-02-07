@@ -9,6 +9,5 @@ $(document).ready(()=>{
       text: texto
     });
     e.preventDefault();
-/*     alert($("#text").text())
- */  });    
+  });    
 });

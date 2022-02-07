@@ -72,7 +72,6 @@ class PageController extends AbstractController
             return $this->redirectToRoute('contacto', [$contacto->getNombre()]);
         }
 
-
         return $this->render("contacto.html.twig", array(
             'formulario' => $formulario->createView()
         ));

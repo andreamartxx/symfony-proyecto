@@ -30,6 +30,8 @@ class AzulejoRepository extends ServiceEntityRepository
 
     }
 
+    
+
     // /**
     //  * @return Azulejo[] Returns an array of Azulejo objects
     //  */
