@@ -46,3 +46,18 @@ img {
     width: 350px;
     height: 250px;
 }
+
+/* Tooltip */
+
+.content{
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.content span{
+    width: 250px;
+}
+
+.content span:hover{
+    cursor: pointer;
+}

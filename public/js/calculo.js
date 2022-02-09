@@ -116,19 +116,21 @@ function enviaDatos(){
         azulejoSeleccionado : seleccion.options[seleccion.selectedIndex].text,
         superficie : metroCuadrado.toFixed(0),
         numAzulejo : total.toFixed(0),
-        azulejosMetro : numAzulejo.toFixed(0),
+        azulejoMetro : numAzulejo.toFixed(0),
         numCaja : caja.toFixed(0),
         azulejoCaja : addAzulejo.toFixed(0)
     }
 
     $.ajax({
         type : "POST",
-        url : "/resultado/uploadAzulejo/" /* meter {data} */ ,
+        url : "/resultado/uploadAzulejo",
+        data: JSON.stringify(uploadData)
 
     })
     .done (()=>{
-        JSON.stringify(uploadData)
-    })
+        alert("Los datos se han guardado");
+    })  
     
+
 
 }

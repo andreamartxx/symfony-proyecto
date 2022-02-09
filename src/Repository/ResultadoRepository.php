@@ -20,4 +20,5 @@ class ResultadoRepository extends ServiceEntityRepository
     }
 
     
+    
 }

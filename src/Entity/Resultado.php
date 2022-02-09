@@ -46,11 +46,6 @@ class Resultado
     /**
      * @ORM\Column(type="integer")
      */
-    private $azulejosMetro;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $numCaja;
 
     /**
@@ -123,17 +118,6 @@ class Resultado
         return $this;
     }
 
-    public function getAzulejosMetro(): ?int
-    {
-        return $this->azulejosMetro;
-    }
-
-    public function setAzulejosMetro(int $azulejosMetro): self
-    {
-        $this->azulejosMetro = $azulejosMetro;
-
-        return $this;
-    }
 
     public function getNumCaja(): ?int
     {
