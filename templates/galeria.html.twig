@@ -11,6 +11,8 @@
     <script src="/js/jquery-3.6.0.js"></script>
     <script src="/js/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
     <script src="/js/galeria.js"></script>
+    <script src="/js/tooltip.js"></script>
+    
 {% endblock %}
 
 {% block body %}
@@ -31,18 +33,18 @@
                 <button class="btn btn-default filter-button" data-filter="vintage">Vintage</button> 
             </div>
             
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter blancos"><a href=""><img src="../assets/img/FSRaku.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter blancos"><a href=""> <img src="../assets/img/poitiersBlanco.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter cementados"><a href=""> <img src="../assets/img/groundDecorativo.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter cementados"><a href=""> <img src="../assets/img/groundMila.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter madera"><a href=""> <img src="../assets/img/essence.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter madera"><a href=""> <img src="../assets/img/mumble.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter metal"><a href=""> <img src="../assets/img/brassRectificado.jpeg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter metal"><a href=""> <img src="../assets/img/brassDecorativo.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter piedra"><a href=""> <img src="../assets/img/natureDecorativo.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter piedra"><a href=""> <img src="../assets/img/adrenaline.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter vintage"><a href=""> <img src="../assets/img/FSStar.jpg" class="img-responsive"></a> </div>
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter vintage"><a href=""> <img src="../assets/img/FSYard.jpg" class="img-responsive"></a> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter blancos" class="content"><span title="Por favor, espere..." data-id='1' id="azulejo_1"><a href=""><img src="../assets/img/FSRaku.jpg" class="img-responsive"  ></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter blancos" class="content"><span title="Por favor, espere..." data-id='2' id="azulejo_2"><a href=""> <img src="../assets/img/poitiersBlanco.jpg" class="img-responsive"></a></span></div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter cementados" class="content"><span title="Por favor, espere..." data-id='3' id="azulejo_3"><a href=""> <img src="../assets/img/groundDecorativo.jpg" class="img-responsive"></a> </span></div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter cementados" class="content"><span title="Por favor, espere..." data-id='4' id="azulejo_4"><a href=""> <img src="../assets/img/groundMila.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter madera" class="content"><span title="Por favor, espere..." data-id='5' id="azulejo_5"><a href=""> <img src="../assets/img/essence.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter madera" class="content"><span title="Por favor, espere..." data-id='6' id="azulejo_6"><a href=""> <img src="../assets/img/mumble.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter metal" class="content"><span title="Por favor, espere..." data-id='7' id="azulejo_7"><a href=""> <img src="../assets/img/brassRectificado.jpeg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter metal" class="content"><span title="Por favor, espere..." data-id='8' id="azulejo_8"><a href=""> <img src="../assets/img/brassDecorativo.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter piedra" class="content"><span title="Por favor, espere..." data-id='9' id="azulejo_9"><a href=""> <img src="../assets/img/natureDecorativo.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter piedra" class="content"><span title="Por favor, espere..." data-id='10' id="azulejo_10"><a href=""> <img src="../assets/img/adrenaline.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter vintage" class="content"><span title="Por favor, espere..." data-id='11' id="azulejo_11"><a href=""> <img src="../assets/img/FSStar.jpg" class="img-responsive"></a></span> </div>
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter vintage" class="content"><span title="Por favor, espere..." data-id='12' id="azulejo_12"><a href=""> <img src="../assets/img/FSYard.jpg" class="img-responsive"></a></span> </div>
         </div>
     </div>
 {% endblock %}

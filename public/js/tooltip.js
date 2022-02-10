@@ -1,20 +1,17 @@
 $(document).ready(function(){
-
-    /*FALTA PONER PHP*/
     
     $( ".content span" ).tooltip({
         track:true,
-        open: function( event, ui ) {
+        open: function(event, ui ) {
               var id = this.id; 
-              var userid = $(this).attr('data-id');
+              var azulejoid = $(this).attr('data-id');
               
               $.ajax({
-                  url:'fetch_details.php',
-                  type:'post',
-                  data:{userid:userid},
+                  url:'../../src/Repository/AzulejoRepository.php',
+                  type:'GET',
+                  data:{azulejoid:azulejoid},
                   success: function(response){
                       
-                      // Setting content option
                       $("#"+id).tooltip('option','content',response);
                         
                   }
@@ -22,8 +19,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".content span").mouseout(function(){
-        // re-initializing tooltip
+    $(".content span").mouseover(function(){
         $(this).attr('title','Por favor, espere...');
         $(this).tooltip();
         $('.ui-tooltip').hide();

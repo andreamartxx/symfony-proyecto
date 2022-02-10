@@ -30,34 +30,32 @@ class AzulejoRepository extends ServiceEntityRepository
 
     }
 
-    
+    public function tooltip($con){
+        
+        $azulejoid = 0;
+        if(isset($_POST['azulejoid'])){
+            $azulejoid = mysqli_real_escape_string($con,$_POST['azulejoid']);
+        }
 
-    // /**
-    //  * @return Azulejo[] Returns an array of Azulejo objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $select_query = "SELECT c FROM App\Entity\Azulejo c WHERE c.id=".$azulejoid;
 
-    /*
-    public function findOneBySomeField($value): ?Azulejo
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $result = mysqli_query($con,$select_query);
+
+        $html = '<div>';
+        while($row = mysqli_fetch_array($result)){
+            $nombre = $row['nombre'];
+            $descripcion = $row['descripcion'];
+            $alto = $row['alto'];
+            $ancho = $row['ancho'];
+
+            $html .= "<span class='head'>Nombre: </span><span>".$nombre."</span><br/>";
+            $html .= "<span class='head'>Descripción: </span><span>".$descripcion."</span><br/>";
+            $html .= "<span class='head'>Alto(cm): </span><span>".$alto."</span><br/>";
+            $html .= "<span class='head'>Ancho(cm): </span><span>".$ancho."</span><br/>";
+        }
+        $html .= '</div>';
+
+        echo $html;
     }
-    */
+
 }
