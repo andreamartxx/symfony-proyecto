@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comentario;
 use Doctrine\DBAL\Driver\IBMDB2\Result;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,24 +53,22 @@ class PageController extends AbstractController
      */
     public function contacto(ManagerRegistry $doctrine, Request $request): Response{
 
-        $contacto = new Usuario();
+        $comentario = new Comentario();
 
-        $formulario = $this->createFormBuilder($contacto)
-            ->add('nombre', TextType::class)
-            ->add('apellido', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('mensaje', TextareaType::class)
+        $formulario = $this->createFormBuilder($comentario)
+            ->add('contenido', TextareaType::class)
             ->add('enviar', SubmitType::class, array('label'=>'Enviar'))
             ->getForm();
         
         $formulario->handleRequest($request);
 
         if($formulario->isSubmitted() && $formulario->isValid()){
-            $contacto = $formulario->getData();
+            $comentario = $formulario->getData();
             $entityManager = $doctrine->getManager();
-            $entityManager->persist($contacto);
+            $comentario->setUser($this->getUser());
+            $entityManager->persist($comentario);
             $entityManager->flush();
-            return $this->redirectToRoute('contacto', [$contacto->getNombre()]);
+            return $this->redirectToRoute('contacto', [$comentario->getContenido()]);
         }
 
         return $this->render("contacto.html.twig", array(

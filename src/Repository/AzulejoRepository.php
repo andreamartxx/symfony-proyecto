@@ -30,8 +30,9 @@ class AzulejoRepository extends ServiceEntityRepository
 
     }
 
-    public function tooltip($con){
-        
+    public function tooltip(){
+        $repositorio = $doctrine->getRepository(Azulejo::class);
+        $azulejo = $repositorio->findById();
         $azulejoid = 0;
         if(isset($_POST['azulejoid'])){
             $azulejoid = mysqli_real_escape_string($con,$_POST['azulejoid']);
@@ -57,5 +58,5 @@ class AzulejoRepository extends ServiceEntityRepository
 
         echo $html;
     }
-
+    
 }

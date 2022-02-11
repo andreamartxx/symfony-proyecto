@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/* $(document).ready(function(){
     
     $( ".content span" ).tooltip({
         track:true,
@@ -24,7 +24,37 @@ $(document).ready(function(){
         $(this).tooltip();
         $('.ui-tooltip').hide();
     });
-
     
-});
+}); */
+
+$(document).ready(function(){
+
+    $(".hover").mouseover(function(){
+        $(this).tooltip({
+            title: fetchData,
+            html: true
+        });
+        $('.ui-tooltip').hide();
+    });
+
+    function fetchData()
+    {
+    console.log("a");
+
+     var fetch_data = '';
+     var azulejoid = $(this).attr('data-id');
+     $.ajax({
+      url:"../../src/Repository/AzulejoRepository.php",
+      method:"POST",
+      async: false,
+      data:{azulejoid:azulejoid},
+      
+      success:function(data)
+      {
+       fetch_data = data;
+      }
+     });   
+     return fetch_data;
+    }
+   });
 
