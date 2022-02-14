@@ -1,35 +1,6 @@
-/* $(document).ready(function(){
-    
-    $( ".content span" ).tooltip({
-        track:true,
-        open: function(event, ui ) {
-              var id = this.id; 
-              var azulejoid = $(this).attr('data-id');
-              
-              $.ajax({
-                  url:'../../src/Repository/AzulejoRepository.php',
-                  type:'GET',
-                  data:{azulejoid:azulejoid},
-                  success: function(response){
-                      
-                      $("#"+id).tooltip('option','content',response);
-                        
-                  }
-              });
-        }
-    });
-
-    $(".content span").mouseover(function(){
-        $(this).attr('title','Por favor, espere...');
-        $(this).tooltip();
-        $('.ui-tooltip').hide();
-    });
-    
-}); */
-
 $(document).ready(function(){
-
     $(".hover").mouseover(function(){
+        console.log("a");
         $(this).tooltip({
             title: fetchData,
             html: true
@@ -39,14 +10,11 @@ $(document).ready(function(){
 
     function fetchData()
     {
-    console.log("a");
-
      var fetch_data = '';
      var azulejoid = $(this).attr('data-id');
      $.ajax({
-      url:"../../src/Repository/AzulejoRepository.php",
-      method:"POST",
-      async: false,
+      url:"/tooltip",
+      method:"GET",
       data:{azulejoid:azulejoid},
       
       success:function(data)

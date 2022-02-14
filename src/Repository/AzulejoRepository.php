@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Azulejo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Func;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -30,17 +31,24 @@ class AzulejoRepository extends ServiceEntityRepository
 
     }
 
-    public function tooltip(){
-        $repositorio = $doctrine->getRepository(Azulejo::class);
-        $azulejo = $repositorio->findById();
-        $azulejoid = 0;
-        if(isset($_POST['azulejoid'])){
-            $azulejoid = mysqli_real_escape_string($con,$_POST['azulejoid']);
-        }
+    /**
+     * 
+     * @Route ("/tooltip", name="tooltip")
+     */
+    public function tooltip(ManagerRegistry $doctrine, $id){
+/*         $entityManager = $this->getEntityManager();
+ */     $repositorio = $doctrine->getRepository(Azulejo::class);
+        $azulejo = $repositorio->find($id);
 
-        $select_query = "SELECT c FROM App\Entity\Azulejo c WHERE c.id=".$azulejoid;
+       /*  $query = $entityManager->createQuery(
+            'SELECT c FROM App\Entity\Azulejo c WHERE c.id='.$azulejo
+        )->setParameter('id', '%' .$id . '%');
 
-        $result = mysqli_query($con,$select_query);
+        return $query->execute(); */
+
+        $select_query = "SELECT c FROM App\Entity\Azulejo c WHERE c.id=".$azulejo;
+
+        $result = mysqli_query($azulejo, $select_query);
 
         $html = '<div>';
         while($row = mysqli_fetch_array($result)){
