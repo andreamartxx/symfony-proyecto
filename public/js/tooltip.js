@@ -1,28 +1,29 @@
 $(document).ready(function(){
     $(".hover").mouseover(function(){
-        console.log("a");
+        azulejoid = $(this).attr('data-id')
         $(this).tooltip({
-            title: fetchData,
+            title: fetchData(azulejoid),
             html: true
         });
+      
         $('.ui-tooltip').hide();
     });
 
-    function fetchData()
+    function fetchData(azulejoid)
     {
      var fetch_data = '';
-     var azulejoid = $(this).attr('data-id');
      $.ajax({
-      url:"/tooltip",
+      url:"/tooltip/" + azulejoid,
       method:"GET",
-      data:{azulejoid:azulejoid},
       
       success:function(data)
       {
        fetch_data = data;
-      }
+       alert(data);
+/*        return fetch_data;
+ */   }
      });   
-     return fetch_data;
+     
     }
-   });
+});
 

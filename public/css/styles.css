@@ -11473,7 +11473,7 @@ html {
 }
 
 body {
-  letter-spacing: 0.0625em;
+  letter-spacing: 0.0325em;
 }
 
 #mainNav {
@@ -11500,6 +11500,10 @@ body {
   outline: none;
   
 }
+#usuarioNav{
+  margin-top: 2em;
+}
+
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
   outline: none;
   
@@ -11701,4 +11705,32 @@ body {
   width: 110px;
   height: 60px;
   margin-left: 2em;
+}
+
+/* carrusel */
+#img3{
+  width: 250px;
+  height:470px;
+}
+
+#img4{
+  width: 250px;
+  height:460px;
+}
+#img8{
+  width: 250px;
+  height:460px;
+}
+
+#img9{
+  width: 250px;
+  height:460px;
+}
+
+/*img index*/
+#testimonial-img{
+  width: 100px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  margin: 0 auto;
 }

@@ -30,41 +30,5 @@ class AzulejoRepository extends ServiceEntityRepository
         return $query->execute();
 
     }
-
-    /**
-     * 
-     * @Route ("/tooltip", name="tooltip")
-     */
-    public function tooltip(ManagerRegistry $doctrine, $id){
-/*         $entityManager = $this->getEntityManager();
- */     $repositorio = $doctrine->getRepository(Azulejo::class);
-        $azulejo = $repositorio->find($id);
-
-       /*  $query = $entityManager->createQuery(
-            'SELECT c FROM App\Entity\Azulejo c WHERE c.id='.$azulejo
-        )->setParameter('id', '%' .$id . '%');
-
-        return $query->execute(); */
-
-        $select_query = "SELECT c FROM App\Entity\Azulejo c WHERE c.id=".$azulejo;
-
-        $result = mysqli_query($azulejo, $select_query);
-
-        $html = '<div>';
-        while($row = mysqli_fetch_array($result)){
-            $nombre = $row['nombre'];
-            $descripcion = $row['descripcion'];
-            $alto = $row['alto'];
-            $ancho = $row['ancho'];
-
-            $html .= "<span class='head'>Nombre: </span><span>".$nombre."</span><br/>";
-            $html .= "<span class='head'>Descripción: </span><span>".$descripcion."</span><br/>";
-            $html .= "<span class='head'>Alto(cm): </span><span>".$alto."</span><br/>";
-            $html .= "<span class='head'>Ancho(cm): </span><span>".$ancho."</span><br/>";
-        }
-        $html .= '</div>';
-
-        echo $html;
-    }
     
 }

@@ -63,14 +63,21 @@ class AzulejoController extends AbstractController
 
         return $this->render('lista_azulejo.html.twig', ['azulejos' => $azulejos]);
      }
+     /**
+     * 
+     * @Route ("/tooltip/{id}", name="tooltip")
+     */
+    public function tooltip(ManagerRegistry $doctrine, $id){
+            $repositorio = $doctrine->getRepository(Azulejo::class);
+            $azulejo = $repositorio->find($id);
+        
+            $info = [
+                "nombre"=> $azulejo->getNombre(),
+                "descripcion"=> $azulejo->getDescripcion(),
+                "alto"=> $azulejo->getAlto(),
+                "ancho"=> $azulejo->getAncho()
+            ];
 
-     
-     
-
-    
-
-    
-
-    
-    
+            return new Response(print_r($info));
+        }
 }
