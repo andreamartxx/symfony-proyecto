@@ -121,6 +121,7 @@ function enviaDatos(){
         azulejoCaja : addAzulejo.toFixed(0)
     }
 
+    //conexión con php para guardar los datos
     $.ajax({
         type : "POST",
         url : "/resultado/uploadAzulejo",
