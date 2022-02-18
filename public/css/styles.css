@@ -11734,3 +11734,9 @@ body {
   border: 6px solid rgba(255, 255, 255, 0.15);
   margin: 0 auto;
 }
+
+/*usuario logeado*/
+#userColor{
+  color: #0d6efd;
+  text-decoration: underline;
+}

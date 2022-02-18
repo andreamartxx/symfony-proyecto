@@ -51,4 +51,16 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    $("#userColor").mouseover(()=>{
+        $("#userColor").animate({
+            color: "blue"
+        });
+    });
+
+    $("#btnTest").click((e)=>{
+        e.preventDefault();
+        alert("Inicia sesión :)");
+    })
+
 });
+

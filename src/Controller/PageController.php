@@ -86,7 +86,23 @@ class PageController extends AbstractController
         return $this->render("galeria.html.twig");
 
     }
+
+    /**
+     * 
+     * @Route("/terminos", name="terminos")
+     * 
+     */
+    public function terminos(): Response{
+        return $this->render("terminos.html.twig");
+    }
  
+    /**
+     * 
+     * @Route("/privacidad", name="privacidad")
+     */
+    public function privacidad(): Response{
+        return $this->render("privacidad.html.twig");
+    }
 }
 
 
