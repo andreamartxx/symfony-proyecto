@@ -3,10 +3,13 @@
 
 {% block stylesheets %}
             <link href="/css/form.css" rel="stylesheet" />
+            <style>
+            
+            </style>
 {% endblock %}
 
 {% block javascripts %}
-
+            <script src="/js/contadorTextarea.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -26,7 +29,18 @@
         {{ form_start(formulario) }}
         <div class="row form">
             <div class="col-6">
-                {{form(formulario)}}
+                <div class="col">
+                    {{form_row(formulario.contenido)}}
+                    <div class="row">
+                        <div class="col-2">
+                            <p> </p>
+                        </div>
+                        <div class="col-10">
+                            <p id="characters"></p>
+                        </div>
+                    </div>
+                </div>
+                {{form_row(formulario.enviar)}}
             </div>
         </div>
         {{ form_end(formulario) }}
